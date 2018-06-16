@@ -1,0 +1,35 @@
+{
+    "name": "@liquid-js/ts-transform-scss",
+    "version": "0.0.5",
+    "main": "transform.js",
+    "repository": "https://github.com/Liquid-JS/ts-transform-scss.git",
+    "author": "HitkoDev <development@hitko.si>",
+    "license": "GPL-3.0",
+    "scripts": {
+        "lint": "tslint --fix --project .",
+        "prepublish": "npm run lint && tsc"
+    },
+    "files": [
+        "transform.js",
+        "transform.js.map",
+        "transform.d.ts"
+    ],
+    "dependencies": {
+        "autoprefixer": "^8.6.2",
+        "deasync": "^0.1.13",
+        "fs": "^0.0.1-security",
+        "md5-file": "^4.0.0",
+        "node-sass": "^4.9.0",
+        "path": "^0.12.7",
+        "postcss": "^6.0.22",
+        "postcss-csso": "^3.0.0",
+        "typescript": "^2.9.2"
+    },
+    "devDependencies": {
+        "@types/autoprefixer": "^6.7.3",
+        "@types/deasync": "^0.1.0",
+        "@types/node": "^10.3.3",
+        "@types/node-sass": "^3.10.32",
+        "tslint": "^5.10.0"
+    }
+}
