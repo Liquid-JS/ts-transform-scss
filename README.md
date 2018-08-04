@@ -18,7 +18,9 @@ Use it with [ttypescript](https://github.com/cevek/ttypescript):
 render() {
     return html`
         <style>
-            @inline(./source.scss);
+            :inline {
+                content: "./source.scss";
+            }
         </style>
     `
 }

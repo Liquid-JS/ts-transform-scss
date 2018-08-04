@@ -1,13 +1,13 @@
 {
     "name": "@liquid-js/ts-transform-scss",
-    "version": "0.0.5",
+    "version": "0.1.0",
     "main": "transform.js",
     "repository": "https://github.com/Liquid-JS/ts-transform-scss.git",
     "author": "HitkoDev <development@hitko.si>",
     "license": "GPL-3.0",
     "scripts": {
         "lint": "tslint --fix --project .",
-        "prepublish": "npm run lint && tsc"
+        "prepare": "npm run lint && tsc"
     },
     "files": [
         "transform.js",

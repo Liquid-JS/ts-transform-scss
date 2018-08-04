@@ -9,8 +9,8 @@ import * as ts from 'typescript'
 
 const cssProcessor = postcss([autoprefixer, csso])
 
-const inlineRegex = /\@inline\([^\)]*\);?/g
-const inlineRegexCap = /\@inline\(([^\)]*)\);?/
+const inlineRegex = /:inline[\n\r\s]*\{[\n\r\s]*content:[\n\r\s]*("([^"]|\\")*"|'([^']|\\')*');[\n\r\s]*\}/g
+const inlineRegexCap = /content:[\n\r\s]*("([^"]|\\")*"|'([^']|\\')*');/
 
 function fsp(file, outFile) {
     return new Promise((res, rej) => sass.render({
@@ -71,7 +71,10 @@ export default function (_program: ts.Program, _config: any) {
                                 }
 
                             let p = m[1].trim()
-                            p = path.normalize(p)
+
+                            // Remove quotes
+                            p = p.replace(new RegExp(`\\\\${m[1].charAt(0)}`, 'g'), m[1].charAt(0))
+                            p = path.normalize(p.substr(1, p.length - 2))
 
                             if (!path.isAbsolute(p))
                                 p = path.normalize(path.join(dir, p))
